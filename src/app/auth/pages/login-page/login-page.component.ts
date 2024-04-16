@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
 })
 export class LoginPageComponent {
 
-  private fb          = inject(FormBuilder);
+  private fb = inject(FormBuilder);
   private authService = inject(AuthService);
-  private router      = inject( Router );
+  private router = inject(Router);
 
   public myform: FormGroup = this.fb.group({
     email: ['luis@developer.com', [Validators.required, Validators.email]],
@@ -25,7 +25,7 @@ export class LoginPageComponent {
     this.authService.login(email, password)
       .subscribe({
         next: () => this.router.navigateByUrl('/dashboard'),
-        error: ( message ) => {
+        error: (message) => {
           Swal.fire('Error', message, 'error')
         },
       });
